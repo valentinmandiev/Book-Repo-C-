@@ -1,19 +1,21 @@
-﻿namespace bookstore.dl.InMemoryDb
+﻿using BookStore.Models.Base;
+
+namespace BookStore.DL.InMemoryDb
 {
-    public class InMemoryDb
+    public static class InMemoryDb
     {
-        public List<Author> Authors = new List<Author>()
+        public static List<Author> Authors = new List<Author>()
         {
             new Author()
             {
-                IDictionary = 1,
-                nameof= "Pesho"
+                Id = 1,
+                Name = "Pesho"
             },
             new Author()
             {
-                IDictionary = 2,
-                nameof= "Stamat"
-            },
+                Id = 2,
+                Name = "Stamat"
+            }
         };
     }
 }

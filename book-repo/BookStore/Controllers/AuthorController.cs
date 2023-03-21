@@ -23,7 +23,18 @@ namespace BookStore.Controllers
         [HttpGet("GetAllAuthors")]
         public IEnumerable<Author> GetAll()
         {
-           return _authorService.GetAll();
+            try
+            {
+                _logger.LogError("GetAll returns error");
+                return _authorService.GetAll();
+
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("GetAll returns error");
+            }
+            return _authorService.GetAll();
+
         }
 
         [HttpGet("GetById")]

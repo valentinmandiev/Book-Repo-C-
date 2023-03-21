@@ -2,8 +2,14 @@ using BookStore.BL.Interfaces;
 using BookStore.BL.Services;
 using BookStore.DL.Interfaces;
 using BookStore.DL.Repositories.InMemoryRepositories;
+using Serilog;
+using Serilog.Sinks.SystemConsole.Themes;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+var logger = new LoggerConfiguration()
+    .Enrich.FromLogContext().WriteTo.Console().CreateLogger();
 
 // Add services to the container.
 builder.Services.AddSingleton<IAuthorService, AuthorService>();

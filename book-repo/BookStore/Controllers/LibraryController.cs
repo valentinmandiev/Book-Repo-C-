@@ -15,10 +15,10 @@ namespace BookStore.Controllers
         }
 
         [HttpGet("GetAllBooksByAuthor")]
-        public GetAllBooksByAuthorResponse
-            GetAllBooksByAuthor(int authorId)
+        public async Task<GetAllBooksByAuthorResponse>
+            GetAllBooksByAuthor(Guid authorId)
         {
-            return _libraryService.GetAllBooksByAuthorId(authorId);
+            return await _libraryService.GetAllBooksByAuthorId(authorId);
         }
     }
 }

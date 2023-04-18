@@ -5,16 +5,11 @@ namespace BookStore.DL.Interfaces
 {
     public interface IBookRepository
     {
-        IEnumerable<Book> GetAll();
-
-        Book GetById(int id);
-
-        void Add(Book author);
-
-        void Delete(int id);
-
-        void Update(Book author);
-
-        IEnumerable<Book> GetAllByAuthorId(int authorId);
+        Task<IEnumerable<Book>> GetAll();
+        Task<Book?> GetById(Guid id);
+        Task Add(Book author);
+        Task Delete(Guid id);
+        Task Update(Book author);
+        Task<IEnumerable<Book>> GetAllByAuthorId(Guid authorId);
     }
 }

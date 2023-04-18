@@ -16,14 +16,14 @@ namespace BookStore.BL.Services
             _authorRepository = authorRepository;
             _bookRepository = bookRepository;
         }
-        public GetAllBooksByAuthorResponse GetAllBooksByAuthorId(int authorId)
+        public async Task<GetAllBooksByAuthorResponse> GetAllBooksByAuthorId(Guid authorId)
         {
-            var author = _authorRepository.GetById(authorId);
+            var author = await _authorRepository.GetById(authorId);
             var books = Enumerable.Empty<Book>();
 
             if (author != null)
             {
-                books = _bookRepository.GetAllByAuthorId(authorId);
+                books = await _bookRepository.GetAllByAuthorId(authorId);
             }
 
             return new GetAllBooksByAuthorResponse()
